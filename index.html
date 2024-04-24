@@ -10,7 +10,7 @@
     <div class="container">
         <div class="section">
             <h2>Construction de la porte</h2>
-            <div class="input-group full-width">
+            <div class="input-group full-width label-container"> <!-- Container des labels -->
                 <label for="gamme_porte">Gamme de porte :</label>
                 <select id="gamme_porte" class="full-width">
                     <option value="VulTek+ A">VulTek+ A</option>
@@ -22,7 +22,7 @@
                     <option value="MagTek_A_Lite">MagTek A Lite</option>
                 </select>
             </div>
-            <div class="input-group full-width">
+            <div class="input-group full-width input-container"> <!-- Container des boutons, des inputs et des listes -->
                 <label for="type_porte">Type de porte :</label>
                 <div class="btn-group">
                     <button class="btn btn-type-porte" onclick="selectTypePorte('simple')">Porte simple</button>
@@ -30,7 +30,7 @@
                 </div>
                 <input type="hidden" id="type_porte">
             </div>
-            <div class="input-group full-width">
+            <div class="input-group full-width input-container"> <!-- Container des boutons, des inputs et des listes -->
                 <label for="ouverture_porte">Sens d'ouverture de porte :</label>
                 <div class="btn-group">
                     <button class="btn btn-sens" onclick="selectOption('interieure')">Porte intérieure</button>
@@ -38,7 +38,7 @@
                 </div>
                 <input type="hidden" id="ouverture_porte">
             </div>
-            <div class="input-group full-width">
+            <div class="input-group full-width input-container"> <!-- Container des boutons, des inputs et des listes -->
                 <label for="seuil_aev">Seuil :</label>
                 <div class="btn-group-seuil">
                     <button class="btn btn-seuil" onclick="selectSeuilAEV('none')">Pas de seuil</button>

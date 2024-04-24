@@ -179,7 +179,7 @@ function calculerValeurs() {
 
         // Calcul de la largeur et de la hauteur de maçonnerie
         var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
-        var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_largeur;
+        var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_hauteur;
 
         // Remplissage des valeurs dans les champs correspondants
         largeurPassageInput.value = largeurPassage.toFixed(2);

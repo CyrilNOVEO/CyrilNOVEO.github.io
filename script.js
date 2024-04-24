@@ -140,12 +140,30 @@ function calculerValeurs() {
         var seuilAev = seuilAevInput.value === "aev";
 
         // Calcul de la largeur et de la hauteur de fabrication
+        if (typePorte === "Porte intérieure"){
+        var largeurFabrication = largeurPassage + (2 * gammes[gammePorte].dormant_largeur_OI) + gammes[gammePorte].empietement_OI;
+        var hauteurFabrication = hauteurPassage + gammes[gammePorte].dormant_largeur_OI;
+        }
+        else if (typePorte === "Porte extérieure){
         var largeurFabrication = largeurPassage + (2 * gammes[gammePorte].dormant_largeur_OE) + gammes[gammePorte].empietement_OE;
         var hauteurFabrication = hauteurPassage + gammes[gammePorte].dormant_largeur_OE;
+        } else {
+            alert("Veuillez sélectionner un type de porte.");
+            return;
+        }
 
         // Calcul de la largeur et de la hauteur de maçonnerie
+        if (typePorte === "Porte intérieure"){
         var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
         var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_hauteur;
+        }
+        else if (typePorte === "Porte extérieure){
+        var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
+        var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_hauteur;
+        } else {
+            alert("Veuillez sélectionner un type de porte.");
+            return;
+        }
 
         // Remplissage des valeurs dans les champs correspondants
         largeurFabricationInput.value = largeurFabrication.toFixed(2);
@@ -156,7 +174,7 @@ function calculerValeurs() {
         // Calcul des autres valeurs à partir de la largeur et de la hauteur de fabrication
         largeurFabrication = parseFloat(largeurFabricationInput.value);
         hauteurFabrication = parseFloat(hauteurFabricationInput.value);
-
+        
         // Récupérer la gamme de porte sélectionnée
         var gammePorteInput = document.getElementById("gamme_porte");
         var gammePorte = gammePorteInput.value;
@@ -174,12 +192,30 @@ function calculerValeurs() {
         var seuilAev = seuilAevInput.value === "aev";
 
         // Calcul de la largeur et de la hauteur du passage
+        if (typePorte === "Porte intérieure"){
+        var largeurPassage = largeurFabrication - (2 * gammes[gammePorte].dormant_largeur_OI) - gammes[gammePorte].empietement_OI;
+        var hauteurPassage = hauteurFabrication - gammes[gammePorte].dormant_largeur_OI;
+        }
+        else if (typePorte === "Porte extérieure){
         var largeurPassage = largeurFabrication - (2 * gammes[gammePorte].dormant_largeur_OE) - gammes[gammePorte].empietement_OE;
         var hauteurPassage = hauteurFabrication - gammes[gammePorte].dormant_largeur_OE;
+        } else {
+            alert("Veuillez sélectionner un type de porte.");
+            return;
+        }
 
         // Calcul de la largeur et de la hauteur de maçonnerie
+        if (typePorte === "Porte intérieure"){
+        var largeurPassage = largeurFabrication - (2 * gammes[gammePorte].dormant_largeur_OI) - gammes[gammePorte].empietement_OI;
+        var hauteurPassage = hauteurFabrication - gammes[gammePorte].dormant_largeur_OI;
+        }
+        else if (typePorte === "Porte extérieure){
         var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
         var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_hauteur;
+        } else {
+            alert("Veuillez sélectionner un type de porte.");
+            return;
+        }
 
         // Remplissage des valeurs dans les champs correspondants
         largeurPassageInput.value = largeurPassage.toFixed(2);
@@ -208,12 +244,30 @@ function calculerValeurs() {
         var seuilAev = seuilAevInput.value === "aev";
 
         // Calcul de la largeur et de la hauteur du passage
+        if (typePorte === "Porte intérieure"){
+        var largeurPassage = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur)- (2 * gammes[gammePorte].dormant_largeur_OI) - gammes[gammePorte].empietement_OI;
+        var hauteurPassage = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur - gammes[gammePorte].dormant_largeur_OI;
+        }
+        else if (typePorte === "Porte extérieure){
         var largeurPassage = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur)- (2 * gammes[gammePorte].dormant_largeur_OE) - gammes[gammePorte].empietement_OE;
         var hauteurPassage = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur - gammes[gammePorte].dormant_largeur_OE;
-
+        } else {
+            alert("Veuillez sélectionner un type de porte.");
+            return;
+        }
+        
         // Calcul de la largeur et de la hauteur de fabrication
+        if (typePorte === "Porte intérieure"){
         var largeurFabrication = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur);
         var hauteurFabrication = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur;
+        }
+        else if (typePorte === "Porte extérieure){
+        var largeurFabrication = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur);
+        var hauteurFabrication = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur;    
+        } else {
+            alert("Veuillez sélectionner un type de porte.");
+            return;
+        }
 
         // Remplissage des valeurs dans les champs correspondants
         largeurPassageInput.value = largeurPassage.toFixed(2);

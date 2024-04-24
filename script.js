@@ -67,10 +67,7 @@ function calculerValeurs() {
     // Variables pour les valeurs saisies
     var largeurPassage = parseFloat(largeurPassageInput.value);
     var hauteurPassage = parseFloat(hauteurPassageInput.value);
-    var largeurFabrication = parseFloat(largeurFabricationInput.value);
-    var hauteurFabrication = parseFloat(hauteurFabricationInput.value);
-    var largeurMaconnerie = parseFloat(largeurMaconnerieInput.value);
-    var hauteurMaconnerie = parseFloat(hauteurMaconnerieInput.value);
+    var largeurFabrication, hauteurFabrication, largeurMaconnerie, hauteurMaconnerie;
 
     // Vérifier quel champ est rempli
     var passageRempli = !isNaN(largeurPassage) && !isNaN(hauteurPassage);
@@ -117,168 +114,30 @@ function calculerValeurs() {
     var seuilAevInput = document.getElementById("seuil_aev");
     var seuilAev = seuilAevInput.value === "aev";
 
-    // Vérifier quel ensemble de valeurs est rempli
-    if (passageRempli) {
-        // Calcul des autres valeurs à partir de la largeur et de la hauteur du passage
-        largeurPassage = parseFloat(largeurPassageInput.value);
-        hauteurPassage = parseFloat(hauteurPassageInput.value);
+    // Calcul de la largeur et de la hauteur de fabrication
+    if (typePorte === "Porte intérieure" || typePorte === "Porte extérieure") {
+        largeurFabrication = largeurPassage + (2 * gammes[gammePorte].dormant_largeur_OI) + gammes[gammePorte].empietement_OI;
+        hauteurFabrication = hauteurPassage + gammes[gammePorte].dormant_largeur_OI;
+    }
 
-        // Récupérer la gamme de porte sélectionnée
-        var gammePorteInput = document.getElementById("gamme_porte");
-        var gammePorte = gammePorteInput.value;
+    // Calcul de la largeur et de la hauteur de maçonnerie
+    if (typePorte === "Porte intérieure" || typePorte === "Porte extérieure") {
+        largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
+        hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_hauteur;
+    }
 
-        // Récupérer le type de porte sélectionné
-        var typePorteInput = document.getElementById("type_porte");
-        var typePorte = typePorteInput.value;
-
-        // Récupérer le sens d'ouverture de porte sélectionné
-        var ouverturePorteInput = document.getElementById("ouverture_porte");
-        var ouverturePorte = ouverturePorteInput.value;
-
-        // Récupérer l'état du seuil AEV
-        var seuilAevInput = document.getElementById("seuil_aev");
-        var seuilAev = seuilAevInput.value === "aev";
-
-        // Calcul de la largeur et de la hauteur de fabrication
-        if (typePorte === "Porte intérieure"){
-        var largeurFabrication = largeurPassage + (2 * gammes[gammePorte].dormant_largeur_OI) + gammes[gammePorte].empietement_OI;
-        var hauteurFabrication = hauteurPassage + gammes[gammePorte].dormant_largeur_OI;
-        }
-        else if (typePorte === "Porte extérieure"){
-        var largeurFabrication = largeurPassage + (2 * gammes[gammePorte].dormant_largeur_OE) + gammes[gammePorte].empietement_OE;
-        var hauteurFabrication = hauteurPassage + gammes[gammePorte].dormant_largeur_OE;
-        }
-    else {
-            alert("Veuillez sélectionner un type de porte.");
-            return;
-        }
-
-        // Calcul de la largeur et de la hauteur de maçonnerie
-        if (typePorte === "Porte intérieure"){
-        var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
-        var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_hauteur;
-        }
-        else if (typePorte === "Porte extérieure"){
-        var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
-        var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_hauteur;
-        } else {
-            alert("Veuillez sélectionner un type de porte.");
-            return;
-        }
-
-        // Remplissage des valeurs dans les champs correspondants
-        largeurFabricationInput.value = largeurFabrication.toFixed(2);
-        hauteurFabricationInput.value = hauteurFabrication.toFixed(2);
-        largeurMaconnerieInput.value = largeurMaconnerie.toFixed(2);
-        hauteurMaconnerieInput.value = hauteurMaconnerie.toFixed(2)
-        }
-        
-else if (fabricationRempli) {
-        // Calcul des autres valeurs à partir de la largeur et de la hauteur de fabrication
-        largeurFabrication = parseFloat(largeurFabricationInput.value);
-        hauteurFabrication = parseFloat(hauteurFabricationInput.value);
-        
-        // Récupérer la gamme de porte sélectionnée
-        var gammePorteInput = document.getElementById("gamme_porte");
-        var gammePorte = gammePorteInput.value;
-
-        // Récupérer le type de porte sélectionné
-        var typePorteInput = document.getElementById("type_porte");
-        var typePorte = typePorteInput.value;
-
-        // Récupérer le sens d'ouverture de porte sélectionné
-        var ouverturePorteInput = document.getElementById("ouverture_porte");
-        var ouverturePorte = ouverturePorteInput.value;
-
-        // Récupérer l'état du seuil AEV
-        var seuilAevInput = document.getElementById("seuil_aev");
-        var seuilAev = seuilAevInput.value === "aev";
-
-        // Calcul de la largeur et de la hauteur du passage
-        if (typePorte === "Porte intérieure"){
-        var largeurPassage = largeurFabrication - (2 * gammes[gammePorte].dormant_largeur_OI) - gammes[gammePorte].empietement_OI;
-        var hauteurPassage = hauteurFabrication - gammes[gammePorte].dormant_largeur_OI;
-        }
-        else if (typePorte === "Porte extérieure"){
-        var largeurPassage = largeurFabrication - (2 * gammes[gammePorte].dormant_largeur_OE) - gammes[gammePorte].empietement_OE;
-        var hauteurPassage = hauteurFabrication - gammes[gammePorte].dormant_largeur_OE;
-        } else {
-            alert("Veuillez sélectionner un type de porte.");
-            return;
-        }
-
-        // Calcul de la largeur et de la hauteur de maçonnerie
-        if (typePorte === "Porte intérieure"){
-        var largeurPassage = largeurFabrication - (2 * gammes[gammePorte].dormant_largeur_OI) - gammes[gammePorte].empietement_OI;
-        var hauteurPassage = hauteurFabrication - gammes[gammePorte].dormant_largeur_OI;
-        }
-        else if (typePorte === "Porte extérieure"){
-        var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
-        var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_hauteur;
-        } else {
-            alert("Veuillez sélectionner un type de porte.");
-            return;
-        }
-
-        // Remplissage des valeurs dans les champs correspondants
-        largeurPassageInput.value = largeurPassage.toFixed(2);
-        hauteurPassageInput.value = hauteurPassage.toFixed(2);
-        largeurMaconnerieInput.value = largeurMaconnerie.toFixed(2);
-        hauteurMaconnerieInput.value = hauteurMaconnerie.toFixed(2);
-    } else if (maconnerieRempli) {
-        // Calcul des autres valeurs à partir de la largeur et de la hauteur de maçonnerie
-        largeurMaconnerie = parseFloat(largeurMaconnerieInput.value);
-        hauteurMaconnerie = parseFloat(hauteurMaconnerieInput.value);
-
-        // Récupérer la gamme de porte sélectionnée
-        var gammePorteInput = document.getElementById("gamme_porte");
-        var gammePorte = gammePorteInput.value;
-
-        // Récupérer le type de porte sélectionné
-        var typePorteInput = document.getElementById("type_porte");
-        var typePorte = typePorteInput.value;
-
-        // Récupérer le sens d'ouverture de porte sélectionné
-        var ouverturePorteInput = document.getElementById("ouverture_porte");
-        var ouverturePorte = ouverturePorteInput.value;
-
-        // Récupérer l'état du seuil AEV
-        var seuilAevInput = document.getElementById("seuil_aev");
-        var seuilAev = seuilAevInput.value === "aev";
-
-        // Calcul de la largeur et de la hauteur du passage
-        if (typePorte === "Porte intérieure"){
-        var largeurPassage = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur)- (2 * gammes[gammePorte].dormant_largeur_OI) - gammes[gammePorte].empietement_OI;
-        var hauteurPassage = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur - gammes[gammePorte].dormant_largeur_OI;
-        }
-        else if (typePorte === "Porte extérieure"){
-        var largeurPassage = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur)- (2 * gammes[gammePorte].dormant_largeur_OE) - gammes[gammePorte].empietement_OE;
-        var hauteurPassage = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur - gammes[gammePorte].dormant_largeur_OE;
-        } else {
-            alert("Veuillez sélectionner un type de porte.");
-            return;
-        }
-        
-        // Calcul de la largeur et de la hauteur de fabrication
-        if (typePorte === "Porte intérieure"){
-        var largeurFabrication = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur);
-        var hauteurFabrication = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur;
-        }
-        else if (typePorte === "Porte extérieure"){
-        var largeurFabrication = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur);
-        var hauteurFabrication = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur;    
-        } else {
-            alert("Veuillez sélectionner un type de porte.");
-            return;
-        }
-
-        // Remplissage des valeurs dans les champs correspondants
-        largeurPassageInput.value = largeurPassage.toFixed(2);
-        hauteurPassageInput.value = hauteurPassage.toFixed(2);
+    // Remplissage des valeurs dans les champs correspondants
+    if (fabricationRempli) {
         largeurFabricationInput.value = largeurFabrication.toFixed(2);
         hauteurFabricationInput.value = hauteurFabrication.toFixed(2);
     }
+
+    if (maconnerieRempli) {
+        largeurMaconnerieInput.value = largeurMaconnerie.toFixed(2);
+        hauteurMaconnerieInput.value = hauteurMaconnerie.toFixed(2);
+    }
 }
+
 
 // Fonction pour réinitialiser les champs non remplis en fonction de la section modifiée
 function reinitialiserChampsNonRemplis(champActif, sectionModifiee) {

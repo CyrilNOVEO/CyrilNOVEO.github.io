@@ -208,8 +208,8 @@ function calculerValeurs() {
         var seuilAev = seuilAevInput.value === "aev";
 
         // Calcul de la largeur et de la hauteur du passage
-        var largeurPassage = largeurMaconnerie - (2 * gammes[gammePorte].dormant_largeur_OE) - gammes[gammePorte].empietement_OE;
-        var hauteurPassage = hauteurMaconnerie - gammes[gammePorte].dormant_largeur_OE;
+        var largeurPassage = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur)- (2 * gammes[gammePorte].dormant_largeur_OE) - gammes[gammePorte].empietement_OE;
+        var hauteurPassage = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur - gammes[gammePorte].dormant_largeur_OE;
 
         // Calcul de la largeur et de la hauteur de fabrication
         var largeurFabrication = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur);

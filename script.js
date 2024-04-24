@@ -144,10 +144,11 @@ function calculerValeurs() {
         var largeurFabrication = largeurPassage + (2 * gammes[gammePorte].dormant_largeur_OI) + gammes[gammePorte].empietement_OI;
         var hauteurFabrication = hauteurPassage + gammes[gammePorte].dormant_largeur_OI;
         }
-        else if (typePorte === "Porte extérieure){
+        else if (typePorte === "Porte extérieure"){
         var largeurFabrication = largeurPassage + (2 * gammes[gammePorte].dormant_largeur_OE) + gammes[gammePorte].empietement_OE;
         var hauteurFabrication = hauteurPassage + gammes[gammePorte].dormant_largeur_OE;
-        } else {
+        }
+    else {
             alert("Veuillez sélectionner un type de porte.");
             return;
         }
@@ -157,7 +158,7 @@ function calculerValeurs() {
         var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
         var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_hauteur;
         }
-        else if (typePorte === "Porte extérieure){
+        else if (typePorte === "Porte extérieure"){
         var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
         var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_hauteur;
         } else {
@@ -169,8 +170,10 @@ function calculerValeurs() {
         largeurFabricationInput.value = largeurFabrication.toFixed(2);
         hauteurFabricationInput.value = hauteurFabrication.toFixed(2);
         largeurMaconnerieInput.value = largeurMaconnerie.toFixed(2);
-        hauteurMaconnerieInput.value = hauteurMaconnerie.toFixed(2);
-    } else if (fabricationRempli) {
+        hauteurMaconnerieInput.value = hauteurMaconnerie.toFixed(2)
+        }
+        
+else if (fabricationRempli) {
         // Calcul des autres valeurs à partir de la largeur et de la hauteur de fabrication
         largeurFabrication = parseFloat(largeurFabricationInput.value);
         hauteurFabrication = parseFloat(hauteurFabricationInput.value);
@@ -196,7 +199,7 @@ function calculerValeurs() {
         var largeurPassage = largeurFabrication - (2 * gammes[gammePorte].dormant_largeur_OI) - gammes[gammePorte].empietement_OI;
         var hauteurPassage = hauteurFabrication - gammes[gammePorte].dormant_largeur_OI;
         }
-        else if (typePorte === "Porte extérieure){
+        else if (typePorte === "Porte extérieure"){
         var largeurPassage = largeurFabrication - (2 * gammes[gammePorte].dormant_largeur_OE) - gammes[gammePorte].empietement_OE;
         var hauteurPassage = hauteurFabrication - gammes[gammePorte].dormant_largeur_OE;
         } else {
@@ -209,7 +212,7 @@ function calculerValeurs() {
         var largeurPassage = largeurFabrication - (2 * gammes[gammePorte].dormant_largeur_OI) - gammes[gammePorte].empietement_OI;
         var hauteurPassage = hauteurFabrication - gammes[gammePorte].dormant_largeur_OI;
         }
-        else if (typePorte === "Porte extérieure){
+        else if (typePorte === "Porte extérieure"){
         var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
         var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_hauteur;
         } else {
@@ -248,7 +251,7 @@ function calculerValeurs() {
         var largeurPassage = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur)- (2 * gammes[gammePorte].dormant_largeur_OI) - gammes[gammePorte].empietement_OI;
         var hauteurPassage = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur - gammes[gammePorte].dormant_largeur_OI;
         }
-        else if (typePorte === "Porte extérieure){
+        else if (typePorte === "Porte extérieure"){
         var largeurPassage = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur)- (2 * gammes[gammePorte].dormant_largeur_OE) - gammes[gammePorte].empietement_OE;
         var hauteurPassage = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur - gammes[gammePorte].dormant_largeur_OE;
         } else {
@@ -261,7 +264,7 @@ function calculerValeurs() {
         var largeurFabrication = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur);
         var hauteurFabrication = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur;
         }
-        else if (typePorte === "Porte extérieure){
+        else if (typePorte === "Porte extérieure"){
         var largeurFabrication = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur);
         var hauteurFabrication = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur;    
         } else {

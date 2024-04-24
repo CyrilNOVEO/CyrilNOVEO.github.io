@@ -140,12 +140,12 @@ function calculerValeurs() {
         var seuilAev = seuilAevInput.value === "aev";
 
         // Calcul de la largeur et de la hauteur de fabrication
-        var largeurFabrication = largeurPassage + (2 * gammes[gammePorte].jeu_largeur) + gammes[gammePorte].dormant_largeur_OE;
+        var largeurFabrication = largeurPassage + (2 * gammes[gammePorte].dormant_largeur_OE) + gammes[gammePorte].empietement_OE;
         var hauteurFabrication = hauteurPassage + gammes[gammePorte].dormant_largeur_OE;
 
         // Calcul de la largeur et de la hauteur de maçonnerie
-        var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur) + gammes[gammePorte].dormant_largeur_OE;
-        var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].dormant_largeur_OE;
+        var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
+        var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_hauteur;
 
         // Remplissage des valeurs dans les champs correspondants
         largeurFabricationInput.value = largeurFabrication.toFixed(2);
@@ -174,12 +174,12 @@ function calculerValeurs() {
         var seuilAev = seuilAevInput.value === "aev";
 
         // Calcul de la largeur et de la hauteur du passage
-        var largeurPassage = largeurFabrication - (2 * gammes[gammePorte].jeu_largeur) - gammes[gammePorte].dormant_largeur_OE;
+        var largeurPassage = largeurFabrication - (2 * gammes[gammePorte].dormant_largeur_OE) - gammes[gammePorte].empietement_OE;
         var hauteurPassage = hauteurFabrication - gammes[gammePorte].dormant_largeur_OE;
 
         // Calcul de la largeur et de la hauteur de maçonnerie
-        var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur) + gammes[gammePorte].dormant_largeur_OE;
-        var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].dormant_largeur_OE;
+        var largeurMaconnerie = largeurFabrication + (2 * gammes[gammePorte].jeu_largeur);
+        var hauteurMaconnerie = hauteurFabrication + gammes[gammePorte].jeu_largeur;
 
         // Remplissage des valeurs dans les champs correspondants
         largeurPassageInput.value = largeurPassage.toFixed(2);
@@ -208,12 +208,12 @@ function calculerValeurs() {
         var seuilAev = seuilAevInput.value === "aev";
 
         // Calcul de la largeur et de la hauteur du passage
-        var largeurPassage = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur) - gammes[gammePorte].dormant_largeur_OE;
+        var largeurPassage = largeurMaconnerie - (2 * gammes[gammePorte].dormant_largeur_OE) - gammes[gammePorte].empietement_OE;
         var hauteurPassage = hauteurMaconnerie - gammes[gammePorte].dormant_largeur_OE;
 
         // Calcul de la largeur et de la hauteur de fabrication
-        var largeurFabrication = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur) - gammes[gammePorte].dormant_largeur_OE;
-        var hauteurFabrication = hauteurMaconnerie - gammes[gammePorte].dormant_largeur_OE;
+        var largeurFabrication = largeurMaconnerie - (2 * gammes[gammePorte].jeu_largeur);
+        var hauteurFabrication = hauteurMaconnerie - gammes[gammePorte].jeu_hauteur;
 
         // Remplissage des valeurs dans les champs correspondants
         largeurPassageInput.value = largeurPassage.toFixed(2);
